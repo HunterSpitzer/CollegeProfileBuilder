@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import SafariServices
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var studentsTextField: UITextField!
+    @IBOutlet weak var websiteTextField: UITextField!
     var college: College!
 
     override func viewDidLoad() {
@@ -29,6 +31,19 @@ class DetailViewController: UIViewController {
         college.name = nameTextField.text!
         college.location = locationTextField.text!
         college.image = myImage.image!
+    }
+
+    @IBAction func websiteButton(sender: UIButton)
+    {
+        
+        let myURL = NSURL(string: "https://google.com")
+        let svc = SFSafariViewController(URL: myURL!)
+        svc.delegate = self
+        presentViewController(svc, animated: true, completion: nil)
+    }
+    
+    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
