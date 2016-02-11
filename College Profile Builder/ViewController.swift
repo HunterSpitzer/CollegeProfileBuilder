@@ -17,9 +17,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         myTableView.dataSource = self
         myTableView.delegate = self
-        colleges.append(College(Name: "College 1", Location: "Location 1", NumberofStudents: 1408, Image: UIImage(named: "college1")!))
-        colleges.append(College(Name: "College 2", Location: "Location 2", NumberofStudents: 1432, Image: UIImage(named: "college")!))
-        colleges.append(College(Name: "College 3", Location: "Location 3", NumberofStudents: 1268, Image: UIImage(named: "college2")!))
+        colleges.append(College(Name: "College 1", Location: "Location 1", NumberofStudents: 1408, Image: UIImage(named: "college1")!, Website: "youtube.com"))
+        colleges.append(College(Name: "College 2", Location: "Location 2", NumberofStudents: 1432, Image: UIImage(named: "college")!, Website: "bing.com"))
+        colleges.append(College(Name: "College 3", Location: "Location 3", NumberofStudents: 1268, Image: UIImage(named: "college2")!, Website: "meme.com"))
     }
 
     @IBAction func addButtonTapped(sender: UIBarButtonItem)
@@ -31,7 +31,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let collegeNameTextField = myAlert.textFields![0] as UITextField
             let locationTextField = myAlert.textFields![1] as UITextField
             let numberOfStudentsTextField = myAlert.textFields![2] as UITextField
-            self.colleges.append(College(Name: collegeNameTextField.text!, Location: locationTextField.text!, NumberofStudents: Int(numberOfStudentsTextField.text!)!))
+            let websiteTextField = myAlert.textFields! [3] as UITextField
+            self.colleges.append(College(Name: collegeNameTextField.text!, Location: locationTextField.text!, NumberofStudents: Int(numberOfStudentsTextField.text!)!, Website: websiteTextField.text!))
             self.myTableView.reloadData()
         }
         myAlert.addAction(addAction)
@@ -43,6 +44,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         myAlert.addTextFieldWithConfigurationHandler { (numberOfStudentsTextField) -> Void in
             numberOfStudentsTextField.placeholder = "Number of Students"
+        }
+        myAlert.addTextFieldWithConfigurationHandler { (websiteTextField) -> Void in
+            websiteTextField.placeholder = "Website"
         }
         self.presentViewController(myAlert, animated: true, completion: nil)
     }

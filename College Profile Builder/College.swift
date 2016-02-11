@@ -14,10 +14,10 @@ class College: NSObject
     var location = ""
     var numberOfStudents = 0
     var image = UIImage(named: "default")
-    var website = NSURL(string: "www.google.com")
+    var website = ""
     
     
-    init(Name: String, Location: String, NumberofStudents: Int, Image: UIImage, Website: NSURL) {
+    init(Name: String, Location: String, NumberofStudents: Int, Image: UIImage, Website: String) {
         super.init()
         name = Name
         location = Location
@@ -25,7 +25,7 @@ class College: NSObject
         image = Image
         website = Website
     }
-    init(Name: String, Location: String, NumberofStudents: Int, Website: NSURL) {
+    init(Name: String, Location: String, NumberofStudents: Int, Website: String) {
         super.init()
         name = Name
         location = Location

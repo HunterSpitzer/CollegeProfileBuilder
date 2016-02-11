@@ -23,21 +23,23 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
         nameTextField.text = college.name
         locationTextField.text = college.location
         studentsTextField.text = String(college.numberOfStudents)
-        
+        websiteTextField.text = String(college.website)
     }
+    
     @IBAction func saveButton(sender: UIButton)
     {
         college.numberOfStudents = Int(studentsTextField.text!)!
         college.name = nameTextField.text!
         college.location = locationTextField.text!
         college.image = myImage.image!
+        college.website = websiteTextField.text!
     }
 
     @IBAction func websiteButton(sender: UIButton)
     {
         
-        let myURL = NSURL(string: "https://google.com")
-        let svc = SFSafariViewController(URL: myURL!)
+        let myUrl = NSURL(string: "https://\(college.website)")
+        let svc = SFSafariViewController(URL: myUrl!)
         svc.delegate = self
         presentViewController(svc, animated: true, completion: nil)
     }
