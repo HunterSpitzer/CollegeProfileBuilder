@@ -9,13 +9,16 @@
 import UIKit
 import SafariServices
 
-class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
+class DetailViewController: UIViewController, SFSafariViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var studentsTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
     var college: College!
+    let imagePicker = UIImagePickerController()
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,8 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
         locationTextField.text = college.location
         studentsTextField.text = String(college.numberOfStudents)
         websiteTextField.text = String(college.website)
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
     }
     
     @IBAction func saveButton(sender: UIButton)
@@ -32,7 +37,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
         college.name = nameTextField.text!
         college.location = locationTextField.text!
         college.image = myImage.image!
-        college.website = websiteTextField.text!
+        
     }
 
     @IBAction func websiteButton(sender: UIButton)
@@ -47,5 +52,21 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
+    @IBAction func pictureButton(sender: UIBarButtonItem)
+    {
+        let mySheet = UIAlertController(title: "Choose Your Picture for this College", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        mySheet.addAction(UIAlertAction(title: "Library of Photos", style: .Default, handler: { (libraryAction) -> Void in
+            self.imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        }))
+        
+        presentViewController(mySheet, animated: true, completion: nil)
+    }
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        imagePicker.dismissViewControllerAnimated(true) { () -> Void in
+            self.myImage.image = (info[UIImagePickerControllerEditedImage] as! UIImage)
+    }
 }
+}
+
