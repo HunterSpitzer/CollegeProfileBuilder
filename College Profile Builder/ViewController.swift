@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         myTableView.dataSource = self
         myTableView.delegate = self
         colleges.append(College(Name: "College 1", Location: "Location 1", NumberofStudents: 1408, Image: UIImage(named: "college1")!, Website: "youtube.com"))

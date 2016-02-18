@@ -22,6 +22,8 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = UIColor.redColor()
+
         myImage.image = college.image
         nameTextField.text = college.name
         locationTextField.text = college.location
