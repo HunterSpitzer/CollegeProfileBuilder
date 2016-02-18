@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myTableView.delegate = self
         colleges.append(College(Name: "College 1", Location: "Location 1", NumberofStudents: 1408, Image: UIImage(named: "college1")!, Website: "youtube.com"))
         colleges.append(College(Name: "College 2", Location: "Location 2", NumberofStudents: 1432, Image: UIImage(named: "college")!, Website: "bing.com"))
-        colleges.append(College(Name: "College 3", Location: "Location 3", NumberofStudents: 1268, Image: UIImage(named: "college2")!, Website: "meme.com"))
+        colleges.append(College(Name: "College 3", Location: "Location 3", NumberofStudents: 1268, Image: UIImage(named: "college2")!, Website: "yahoo.com"))
     }
 
     @IBAction func addButtonTapped(sender: UIBarButtonItem)
