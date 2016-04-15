@@ -18,9 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         myTableView.dataSource = self
         myTableView.delegate = self
-        colleges.append(College(Name: "College 1", Location: "Location 1", NumberofStudents: 1408, Image: UIImage(named: "college1")!, Website: "youtube.com"))
-        colleges.append(College(Name: "College 2", Location: "Location 2", NumberofStudents: 1432, Image: UIImage(named: "college")!, Website: "bing.com"))
-        colleges.append(College(Name: "College 3", Location: "Location 3", NumberofStudents: 1268, Image: UIImage(named: "college2")!, Website: "yahoo.com"))
+        colleges.append(College(Name: "Massachusetts Institute of Technology", Location: "Cambridge, Massachusetts", NumberofStudents: 1408, Image: UIImage(named: "college1")!, Website: "http://web.mit.edu"))
+        colleges.append(College(Name: "Calvin College", Location: "Grand Rapids Michigan", NumberofStudents: 1432, Image: UIImage(named: "college")!, Website: "bing.com"))
+        colleges.append(College(Name: "North Central College", Location: "Naperville, Illinois", NumberofStudents: 1268, Image: UIImage(named: "college2")!, Website: "yahoo.com"))
     }
 
     @IBAction func addButtonTapped(sender: UIBarButtonItem)

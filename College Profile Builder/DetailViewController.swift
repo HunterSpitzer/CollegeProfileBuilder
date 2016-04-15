@@ -23,6 +23,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.redColor()
+        let locate : String = locationTextField.text!
 
         myImage.image = college.image
         nameTextField.text = college.name
@@ -39,11 +40,11 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, UI
         college.name = nameTextField.text!
         college.location = locationTextField.text!
         college.image = myImage.image!
-        
+        college.website = websiteTextField.text!
     }
 
     @IBAction func websiteButton(sender: UIButton)
-    {
+    { 
         
         let myUrl = NSURL(string: "https://\(college.website)")
         let svc = SFSafariViewController(URL: myUrl!)
@@ -70,5 +71,10 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, UI
             self.myImage.image = (info[UIImagePickerControllerEditedImage] as! UIImage)
     }
 }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let mapVC = segue.destinationViewController as! MapViewController
+        mapVC.theLocation = college
+       }
+    
 }
 
