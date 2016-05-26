@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  College Profile Builder
 //
-//  Created by MBalsamo on 1/20/16.
+//  Created by Quantum Reality Applications on 1/20/16.
 //  Copyright © 2016 Student. All rights reserved.
 //
 
@@ -12,6 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+ 
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

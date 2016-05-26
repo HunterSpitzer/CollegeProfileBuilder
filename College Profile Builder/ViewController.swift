@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  College Profile Builder
 //
-//  Created by MBalsamo on 2/1/16.
+//  Created by Quantum Reality Applications on 2/1/16.
 //  Copyright © 2016 Student. All rights reserved.
 //
 

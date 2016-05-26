@@ -53,7 +53,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, UI
     }
     
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+        controller.dismissViewControllerAnimated(true, completion: nil)    
     }
     
     @IBAction func pictureButton(sender: UIBarButtonItem)
